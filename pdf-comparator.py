@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import sys
+from fast_diff_match_patch import diff
 
 if sys.version_info[0] < 3 or sys.version_info[1] < 6:
     sys.exit("ERROR: Python version 3.6+ is required.")
@@ -118,7 +119,6 @@ def mark_eol_hyphen(box):
         	box['text'] = box['text'][0:-1] + "\u00AD"
 
 def perform_diff(doc1text, doc2text):
-    from fast_diff_match_patch import diff
     return diff(doc1text,
         doc2text,   
         timelimit=0,
